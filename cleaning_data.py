@@ -4,7 +4,7 @@
 import pandas as pd
 
 #load data into df
-renters=pd.read_csv('burden.csv')
+renters=pd.read_csv('data/burden.csv')
 
 #drop micropolitan areas
 renters=renters[renters['NAME'].str.contains('Metro Area', na=False)].copy()
@@ -28,7 +28,7 @@ renters['state']=renters['state'].str.replace(' Metro Area', '',
 renters['state']=renters['state'].str.split('-').str[0].str.strip()
 
 #drop non states
-valid_states = [
+valid_states=[
     'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
     'HI','ID','IL','IN','IA','KS','KY','LA','ME','MD',
     'MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ',
@@ -63,7 +63,7 @@ def burden_category(pct):
 renters['burden_category']=renters['pct_cost_burden'].apply(burden_category)
 
 #save as csv
-renters.to_csv('burden_clean.csv')
+renters.to_csv('data/burden_clean.csv')
 
 #good info to know
 print(f"Metro areas after cleaning: {len(renters)}")

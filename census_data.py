@@ -60,7 +60,7 @@ df['pct_severely_burdened']=100*(
     )
 
 #save as csv
-df.to_csv('burden.csv', index=False)
+df.to_csv('data/burden.csv', index=False)
 
 #some info
 print(f"Saved {len(df)} metro areas")
