@@ -54,6 +54,18 @@ print(merged[['metro','state','pct_cost_burden','welfare_loss_score']]
 merged['zoning_tax']=(merged['median_gross_rent']-merged['fmr_2br']).round(2)
 merged['zoning_tax_pct']=(100*merged['zoning_tax']/merged['fmr_2br']).round(2)
 
+print("\nTop 10 most zoning taxed metros (rent furthest above FMR):")
+print(merged[['metro', 'state', 'median_gross_rent', 'fmr_2br',
+              'zoning_tax', 'zoning_tax_pct', 'WRLURI18']]
+      .sort_values('zoning_tax', ascending=False)
+      .head(10).to_string(index=False))
+
+print("\nTop 10 least zoning taxed metros (rent closest to or below FMR):")
+print(merged[['metro', 'state', 'median_gross_rent', 'fmr_2br',
+              'zoning_tax', 'zoning_tax_pct', 'WRLURI18']]
+      .sort_values('zoning_tax', ascending=True)
+      .head(10).to_string(index=False))
+
 #regression
 
 #make log var

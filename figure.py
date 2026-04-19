@@ -242,14 +242,14 @@ ax4.text(mid_q*1.02,
 ax4.set_xlabel('Number of Renter Households', fontsize=12)
 ax4.set_ylabel('Monthly Rent ($)', fontsize=12)
 ax4.set_title('Effect of Zoning Restrictions on Housing Market\n'
-              'Calibrated to Median U.S. Metro Area (2022)',
+              'Calibrated to Median U.S. Metro Area (2021)',
               fontsize=13, fontweight='bold')
 ax4.legend(fontsize=9, loc='upper right')
 ax4.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${x:,.0f}'))
 ax4.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:,.0f}'))
 ax4.grid(True, alpha=0.3)
-ax4.set_xlim(0, q_eq_free * 1.3)
-ax4.set_ylim(0, wtp_max * 1.1)
+ax4.set_xlim(0, q_eq_free*1.3)
+ax4.set_ylim(0, wtp_max*1.1)
 
 plt.tight_layout()
 plt.savefig('figures/fig4_supply_demand.png', bbox_inches='tight')
